@@ -15,36 +15,36 @@
     min-height: 100vh;
   }
 
-  .titleShop {
+  .gamesBlock > .titleShop {
     padding: 15px 0;
     text-align: center;
     font-size: 2.8rem;
     letter-spacing: -0.02em;
   }
 
-  .games {
+  .gamesBlock > .games {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    justify-content: space-around;
-    padding: 20px;
+    padding: 15px;
   }
 
-  .game {
+  .gamesBlock > .games .game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 8px;
   }
 
-  .nameGame {
+  .gamesBlock > .games .game > .nameGame {
     text-align: center;
-    font-size: 22px;
+    font-size: 21px;
+    font-weight: bold;
     padding-top: 10px;
   }
 
-  .properties {
+  .gamesBlock > .games .game > .properties {
       text-align: center;
       padding-top: 15px;
   }
