@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif !important;
+  }
+  
+  body {
+    min-width: 600px;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .titleShop {
+    padding: 15px 0;
+    text-align: center;
+    font-size: 2.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .games {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-content: space-around;
+    padding: 20px;
+  }
+
+  .game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 8px;
+  }
+
+  .nameGame {
+    text-align: center;
+    font-size: 22px;
+    padding-top: 10px;
+  }
+
+  .properties {
+      text-align: center;
+      padding-top: 15px;
+  }
