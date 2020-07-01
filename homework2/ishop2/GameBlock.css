@@ -1,0 +1,42 @@
+.game {
+    display: flex;
+    width: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 8px;
+   cursor: pointer;
+
+ }
+
+ .selected {
+     border: 2px solid rgb(151, 8, 51);
+ }
+
+ .game > .nameGame {
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 10px;
+  }
+
+ .game > .properties {
+      text-align: center;
+      padding-top: 15px;
+  }
+ .game > .btn-delete {
+     width: 100px;
+     height: 30px;
+     font-size: 16px;
+     color: white;
+   margin-top: 10px; 
+   border-radius: 4px;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   background-color: rgb(128, 11, 11);
+}
+.game > .btn-delete:hover {
+  background-color: rgb(66, 7, 7);
+}

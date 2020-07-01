@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Проба React</title>
+    <link rel="stylesheet" type="text/css" href="GamesBlock.css">
+    <link rel="stylesheet" type="text/css" href="GameBlock.css">
+
+
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="GamesBlock.js"></script>
+    <script src="GameBlock.js"></script>
+
+    <script>
+        var nameShop = 'Магазин настольных игр',
+            gamesArray = [
+                { id: 1, nameGame: 'Серп', price: 196, imgGame: 'https://i.ibb.co/xJkHbnc/photo1-200.jpg', count: 4 },
+                { id: 2, nameGame: 'Пандемия', price: 88, imgGame: 'https://i.ibb.co/VBWcBBq/photo3-200.jpg', count: 10 },
+                { id: 3, nameGame: 'Кодовые имена', price: 49, imgGame: 'https://i.ibb.co/8794HWq/photo4-200.jpg', count: 20 },
+                { id: 4, nameGame: 'Империя Корлеоне', price: 189, imgGame: 'https://i.ibb.co/6n63mzK/photo2-200.png', count: 2 }
+            ];
+
+        ReactDOM.render(
+            React.createElement(GamesBlock, { nameShop: nameShop, games: gamesArray }),
+            document.getElementById('container')
+        );
+    </script>
+</body>
+
+</html>
