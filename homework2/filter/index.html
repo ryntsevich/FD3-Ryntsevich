@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" type="text/css" href="FilterBlock.css">
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+
+    <script src="FilterBlock.js"></script>
+
+    <script>
+        var list =
+            [
+                { id: 1, text: 'бумага' },
+                { id: 2, text: 'друг' },
+                { id: 3, text: 'стол' },
+                { id: 4, text: 'невероятный' },
+                { id: 5, text: 'грандиозный' },
+                { id: 6, text: 'всемирный' },
+                { id: 7, text: 'сомневаться' },
+                { id: 8, text: 'спрашивать' },
+                { id: 9, text: 'планировать' },
+                { id: 10, text: 'ужасающий' },
+                { id: 11, text: 'радуга' },
+                { id: 12, text: 'яркий' }
+
+            ];
+
+        ReactDOM.render(
+            React.createElement(FilterBlock, { content: list }),
+            document.getElementById('container')
+        );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+.filterBlock  > .btnReset {
+    margin: 0 10px;
+}
+
+.filterBlock > .containerList > .list {
+    margin-top: 12px;
+    width: 270px;
+}
