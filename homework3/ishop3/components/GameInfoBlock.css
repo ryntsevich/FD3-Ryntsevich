@@ -1,0 +1,13 @@
+.gameInfo {
+    text-align: left;
+}
+
+.gameInfo > .gameInfo_title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gameInfo > .gameInfo_description > p {
+    margin-bottom: 15px;
+}

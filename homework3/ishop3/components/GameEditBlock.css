@@ -1,0 +1,61 @@
+.gameEdit {
+    text-align: left;
+}
+
+.gameEdit > .gameEdit_title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.gameEdit > .gameEdit_description > .game_item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.gameEdit > .gameEdit_description > .game_item > label {
+    width: 200px;
+}
+
+.gameEdit > .gameEdit_description > .game_item > input {
+    width: 400px;
+    margin-right: 20px;
+}
+
+.gameEdit > .gameEdit_description > .game_item > .error {
+    color: red;
+}
+
+.gameEdit > .buttonsEdit > .btn-save,
+.gameEdit > .buttonsEdit > .btn-cancel {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    color: white;
+    margin-top: 10px; 
+    margin-right: 10px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(2, 45, 70);
+}
+
+.gameEdit > .buttonsEdit > .btn-cancel {
+    background-color: rgb(128, 11, 11);
+}
+
+.gameEdit > .buttonsEdit > .btn-cancel:hover {
+    background-color: rgb(66, 7, 7);
+}
+
+.gameEdit > .buttonsEdit > .btn-save:hover {
+    background-color: rgb(4, 23, 34);
+}
+
+.gameEdit > .buttonsEdit > .btn-save:disabled {
+    background-color: rgb(112, 113, 114);
+    cursor: auto;
+}
+
+
