@@ -107,11 +107,10 @@ class GamesBlock extends React.Component {
                 <div className="titleShop">{this.props.nameShop}</div>
                 <div className="games">{gamesHTML}</div>
                 <button className="btn-create" onClick={this.addNewGame} disabled={this.state.blockChange}>New Game</button>
-                {this.state.selectedId && <GameInfoBlock selectedGame={selectedGame} statusMode={this.state.statusMode}/>}
-                {(this.state.selectedId || this.state.add) && <GameEditBlock
+                {this.state.statusMode == 1 && <GameInfoBlock selectedGame={selectedGame}/>}
+                {this.state.statusMode == 2 && <GameEditBlock
                     key={this.state.key}
                     selectedGame={this.state.add ? emptyNewGame : selectedGame}
-                    statusMode={this.state.statusMode}
                     add={this.state.add}
                     cbIsChange={this.isChange}
                     cbChangeGame={this.changeGame}

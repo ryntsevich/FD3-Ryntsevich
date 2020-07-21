@@ -8,7 +8,6 @@ class GameEditBlock extends React.Component {
 
     static propTypes = {
         selectedGame: PropTypes.object.isRequired,
-        statusMode: PropTypes.number.isRequired,
         add: PropTypes.bool.isRequired,
         cbIsChange: PropTypes.func.isRequired,
         cbChangeGame: PropTypes.func.isRequired,
@@ -75,7 +74,7 @@ class GameEditBlock extends React.Component {
 
     render() {
         return (
-            <div className="gameEdit" hidden={this.props.statusMode !== 2}>
+            <div className="gameEdit" >
                 <div className="gameEdit_title">Режим {this.props.add ? "создания" : "редактирования"}</div>
                 <div className="gameEdit_description">
                     <div className="game_item">

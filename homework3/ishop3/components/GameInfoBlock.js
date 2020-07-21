@@ -8,12 +8,11 @@ class GameInfoBlock extends React.Component {
 
     static propTypes = {
         selectedGame: PropTypes.object.isRequired,
-        statusMode: PropTypes.number.isRequired
     };
 
     render() {
         return (
-            <div className="gameInfo" hidden={this.props.statusMode !== 1}>
+            <div className="gameInfo">
                 <div className="gameInfo_title">Карта товара</div>
                 <div className="gameInfo_description">
                     <p>Название игры: {this.props.selectedGame.nameGame}</p>
