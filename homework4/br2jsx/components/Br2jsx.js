@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 import './Br2jsx.css';
 
-class Br2jsx extends React.Component {
+export default props => {
+    const regexp = /<br ?\/?>/igm,
+        array = props.text.split(regexp),
+        newArray = [];
 
-    render() {
-        return (
-            <div className="br2jsx">{this.props.text}</div >
-        )
-    }
+    array.forEach((elem, i) => {
+        (i !== array.length - 1) ? newArray.push(elem, <br key={i} />) : newArray.push(elem)
+    });
+
+    return <div className="br2jsx">{newArray}</div>;
 }
-
-export default Br2jsx;
