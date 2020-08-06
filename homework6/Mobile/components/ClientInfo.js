@@ -31,6 +31,10 @@ class ClientInfo extends React.PureComponent {
         clientEvents.emit('Save', this.props.id, surname, balance);
     }
 
+    cancelClient = () => {
+        clientEvents.emit('Cancel');
+    }
+
     render() {
         return (
 
@@ -47,7 +51,7 @@ class ClientInfo extends React.PureComponent {
                 </div>
                 <div className="buttonsEdit">
                     <button className="btn-save" onClick={this.saveClient}>Save</button>
-                    <button className="btn-cancel" onClick={this.props.cbCancelEdit}>Cancel</button>
+                    <button className="btn-cancel" onClick={this.cancelClient}>Cancel</button>
                 </div>
             </div>
         )

@@ -33,12 +33,15 @@ class MobileCompany extends React.PureComponent {
     clientEvents.addListener('Delete', this.deleteClient);
     clientEvents.addListener('Save', this.saveClient);
     clientEvents.addListener('Edit', this.editClient);
+    clientEvents.addListener('Cancel', this.cancelClient);
   };
 
   componentWillUnmount = () => {
     clientEvents.removeListener('Delete', this.deleteClient);
     clientEvents.removeListener('Save', this.saveClient);
     clientEvents.removeListener('Edit', this.editClient);
+    clientEvents.removeListener('Cancel', this.cancelClient);
+
   };
 
   setNameCompany1 = () => {
@@ -112,6 +115,11 @@ class MobileCompany extends React.PureComponent {
       editClient: editClient,
       modeAdd: 2,
     });
+  }
+
+  cancelClient = () => {
+    let clients = [...this.state.clients];
+    this.setState({ modeAdd: 0, clients: clients });
   }
 
   render() {
