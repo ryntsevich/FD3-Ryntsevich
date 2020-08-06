@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import MobileClient from './MobileClient';
 import ClientInfo from './ClientInfo';
+import {clientEvents} from './events';
+
 
 import './MobileCompany.css';
 
@@ -25,6 +27,14 @@ class MobileCompany extends React.PureComponent {
     modeFilter: 0
   };
 
+  componentDidMount = () => {
+    clientEvents.addListener('Delete', this.deleteClient);
+  };
+
+  componentWillUnmount = () => {
+    clientEvents.removeListener('Delete', this.deleteClient);
+  };
+
   setNameCompany1 = () => {
     this.setState({ nameCompany: 'МТС' });
   };
@@ -35,10 +45,10 @@ class MobileCompany extends React.PureComponent {
 
   setBalance = (clientId, newBalance) => {
     let changed = false;
-    let newClients = [...this.state.clients]; // копия самого массива клиентов
+    let newClients = [...this.state.clients];
     newClients.forEach((c, i) => {
       if (c.id == clientId && c.balance != newBalance) {
-        let newClient = { ...c }; // копия хэша изменившегося клиента
+        let newClient = { ...c };
         newClient.balance = newBalance;
         newClients[i] = newClient;
         changed = true;
@@ -56,6 +66,12 @@ class MobileCompany extends React.PureComponent {
   }
   chooseBlocked = () => {
     this.setState({ modeFilter: 2 });
+  }
+
+  deleteClient = (id) => {
+    let clients = [...this.state.clients];
+    clients = clients.filter(client => client.id !== id);
+    this.setState({clients: clients} );
   }
 
   render() {
