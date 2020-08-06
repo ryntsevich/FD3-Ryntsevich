@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MobileClient from './MobileClient';
 import ClientInfo from './ClientInfo';
-import {clientEvents} from './events';
+import { clientEvents } from './events';
 
 
 import './MobileCompany.css';
@@ -24,15 +24,21 @@ class MobileCompany extends React.PureComponent {
   state = {
     nameCompany: this.props.nameCompany,
     clients: this.props.clients,
-    modeFilter: 0
+    modeFilter: 0,
+    modeAdd: 0, //1-add, 2-edit
+    editClient: null
   };
 
   componentDidMount = () => {
     clientEvents.addListener('Delete', this.deleteClient);
+    clientEvents.addListener('Save', this.saveClient);
+    clientEvents.addListener('Edit', this.editClient);
   };
 
   componentWillUnmount = () => {
     clientEvents.removeListener('Delete', this.deleteClient);
+    clientEvents.removeListener('Save', this.saveClient);
+    clientEvents.removeListener('Edit', this.editClient);
   };
 
   setNameCompany1 = () => {
@@ -71,7 +77,41 @@ class MobileCompany extends React.PureComponent {
   deleteClient = (id) => {
     let clients = [...this.state.clients];
     clients = clients.filter(client => client.id !== id);
-    this.setState({clients: clients} );
+    this.setState({ clients: clients });
+  }
+
+  addClient = () => {
+    this.setState({ modeAdd: 1 });
+  }
+
+  saveClient = (id, surname, balance) => {
+    let clients = [...this.state.clients];
+    if (this.state.modeAdd === 1) {
+      let newClient = { id: clients.length + 2, surname: surname, balance: parseInt(balance) };
+      clients = [...clients, newClient];
+    }
+    if (this.state.modeAdd === 2) {
+      clients.forEach((client, i) => {
+        if (client.id == id) {
+          let client = { ...client };
+          client.id = id;
+          client.surname = surname;
+          client.balance = parseInt(balance);
+          clients[i] = client;
+        }
+      })
+    };
+    this.setState({ modeAdd: 0, clients: clients });
+  };
+
+  editClient = (id) => {
+    let editClient = this.state.clients.find(client => {
+      return (client.id === id);
+    });
+    this.setState({
+      editClient: editClient,
+      modeAdd: 2,
+    });
   }
 
   render() {
@@ -105,14 +145,23 @@ class MobileCompany extends React.PureComponent {
         <div className="MobileCompanyClients">
           {clientsCode}
         </div>
-        <button>Добавить клиента</button>
-        <ClientInfo />
+        <button onClick={this.addClient}>Добавить клиента</button>
+        {(this.state.modeAdd === 1) && <ClientInfo key={this.state.clients.length + 1}
+          mode={this.state.modeAdd}
+          id={this.state.clients.length + 1}
+          surname=''
+          balance='' />
+        }
+
+        {(this.state.modeAdd === 2) && <ClientInfo key={this.state.editClient.id}
+          mode={this.state.modeAdd}
+          id={this.state.editClient.id}
+          surname={this.state.editClient.surname}
+          balance={this.state.editClient.balance} />
+        }
       </div>
-    )
-      ;
-
+    );
   }
-
 }
 
 export default MobileCompany;

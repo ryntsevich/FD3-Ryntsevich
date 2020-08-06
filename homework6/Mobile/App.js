@@ -5,10 +5,10 @@ import MobileCompany from './components/MobileCompany';
 
 let companyName = 'Velcom';
 let clientsArr = [
-    { id: 101, surname: 'Иванов', balance: 200 },
-    { id: 105, surname: 'Сидоров', balance: 250 },
-    { id: 110, surname: 'Петров', balance: 180 },
-    { id: 120, surname: 'Григорьев', balance: -220 },
+    { id: 1, surname: 'Иванов', balance: 200 },
+    { id: 2, surname: 'Сидоров', balance: 250 },
+    { id: 3, surname: 'Петров', balance: 180 },
+    { id: 4, surname: 'Григорьев', balance: -220 },
 ];
 
 ReactDOM.render(
