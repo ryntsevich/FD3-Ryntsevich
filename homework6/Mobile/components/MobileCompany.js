@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 
 import MobileClient from './MobileClient';
+import ClientInfo from './ClientInfo';
 
 import './MobileCompany.css';
 
@@ -21,6 +22,7 @@ class MobileCompany extends React.PureComponent {
   state = {
     nameCompany: this.props.nameCompany,
     clients: this.props.clients,
+    modeFilter: 0
   };
 
   setNameCompany1 = () => {
@@ -46,20 +48,33 @@ class MobileCompany extends React.PureComponent {
       this.setState({ clients: newClients });
   };
 
-
-  setBalance1 = () => {
-    this.setBalance(105, 230);
-  };
-
-  setBalance2 = () => {
-    this.setBalance(105, 250);
-  };
+  chooseAll = () => {
+    this.setState({ modeFilter: 0 });
+  }
+  chooseActive = () => {
+    this.setState({ modeFilter: 1 });
+  }
+  chooseBlocked = () => {
+    this.setState({ modeFilter: 2 });
+  }
 
   render() {
 
     console.log('MobileCompany render');
 
-    var clientsCode = this.state.clients.map(client =>
+    let clientsCode = this.state.clients.filter(client => {
+      if (this.state.modeFilter === 1) {
+        return client.balance >= 0;
+      }
+      else if (this.state.modeFilter === 2) {
+        return client.balance < 0;
+      }
+      else {
+        return client;
+      }
+    });
+
+    clientsCode = clientsCode.map(client =>
       <MobileClient key={client.id} info={client} />
     );
 
@@ -68,13 +83,14 @@ class MobileCompany extends React.PureComponent {
         <button value="МТС" onClick={this.setNameCompany1}>MTC</button>
         <button value="Velcom" onClick={this.setNameCompany2}>Velcome</button>
         <div className="MobileCompany">Компания &laquo;{this.state.nameCompany}&raquo;</div>
-        <button>Все</button>
-        <button>Активные</button>
-        <button>Заблокированные</button>
+        <button onClick={this.chooseAll}>Все</button>
+        <button onClick={this.chooseActive}>Активные</button>
+        <button onClick={this.chooseBlocked}>Заблокированные</button>
         <div className="MobileCompanyClients">
           {clientsCode}
         </div>
         <button>Добавить клиента</button>
+        <ClientInfo />
       </div>
     )
       ;

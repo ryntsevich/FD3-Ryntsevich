@@ -30,7 +30,7 @@ class MobileClient extends React.PureComponent {
       <div className="MobileClient">
         <div className="MobileClientSurname list">{this.state.info.surname}</div>
         <div className="MobileClientBalance list">{this.state.info.balance}</div>
-        <div className="list">Статус</div>
+        <div className={this.state.info.balance >= 0 ? "active list" : "blocked list"}>{this.state.info.balance >= 0 ? "Активный" : "Заблокированный"}</div>
         <div className="list"><button>Редактировать</button></div>
         <div className="list"><button >Удалить</button></div>
 

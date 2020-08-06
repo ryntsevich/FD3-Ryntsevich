@@ -8,3 +8,11 @@
 .list {
   width: 50%;
 }
+
+.MobileClient > .active {
+  background-color: green;
+}
+
+.MobileClient > .blocked {
+  background-color: red;
+}
