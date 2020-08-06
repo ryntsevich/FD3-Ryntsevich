@@ -146,7 +146,7 @@ class MobileCompany extends React.PureComponent {
       <div className="MobileCompany">
         <button value="МТС" onClick={this.setNameCompany1}>MTC</button>
         <button value="Velcom" onClick={this.setNameCompany2}>Velcome</button>
-        <div className="MobileCompany">Компания &laquo;{this.state.nameCompany}&raquo;</div>
+        <div className="MobileCompanyName">Компания &laquo;{this.state.nameCompany}&raquo;</div>
         <button onClick={this.chooseAll}>Все</button>
         <button onClick={this.chooseActive}>Активные</button>
         <button onClick={this.chooseBlocked}>Заблокированные</button>

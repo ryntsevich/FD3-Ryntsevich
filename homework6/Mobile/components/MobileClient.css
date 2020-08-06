@@ -6,7 +6,11 @@
 }
 
 .list {
-  width: 50%;
+  width: 30%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+
 }
 
 .MobileClient > .active {

@@ -47,8 +47,6 @@ class MobileClient extends React.PureComponent {
         <div className={this.state.info.balance >= 0 ? "active list" : "blocked list"}>{this.state.info.balance >= 0 ? "Активный" : "Заблокированный"}</div>
         <div className="list"><button onClick={this.editClient}>Редактировать</button></div>
         <div className="list"><button onClick={this.deleteClient}>Удалить</button></div>
-
-        {/* <button>Удалить</button> */}
       </div>
     );
 
