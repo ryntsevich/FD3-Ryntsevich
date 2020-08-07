@@ -26,7 +26,8 @@ class MobileCompany extends React.PureComponent {
     clients: this.props.clients,
     modeFilter: 0,
     modeAdd: 0, //1-add, 2-edit
-    editClient: null
+    editClient: null,
+    key: '4'
   };
 
   componentDidMount = () => {
@@ -90,7 +91,7 @@ class MobileCompany extends React.PureComponent {
   saveClient = (id, surname, balance) => {
     let clients = [...this.state.clients];
     if (this.state.modeAdd === 1) {
-      let newClient = { id: clients.length + 2, surname: surname, balance: parseInt(balance) };
+      let newClient = { id: ++this.state.key, surname: surname, balance: parseInt(balance) };
       clients = [...clients, newClient];
     }
     if (this.state.modeAdd === 2) {
@@ -154,9 +155,9 @@ class MobileCompany extends React.PureComponent {
           {clientsCode}
         </div>
         <button onClick={this.addClient}>Добавить клиента</button>
-        {(this.state.modeAdd === 1) && <ClientInfo key={this.state.clients.length + 1}
+        {(this.state.modeAdd === 1) && <ClientInfo key={this.state.key}
           mode={this.state.modeAdd}
-          id={this.state.clients.length + 1}
+          id={this.state.key}
           surname=''
           balance='' />
         }
