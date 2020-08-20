@@ -32,9 +32,12 @@ class Scales {
         return sumScale;
     }
 
-    getNameList(): string {
-        let nameList: string;
-        nameList = this.products.map(product => product.getName()).join('\n ');
+    getNameList(): string[] {
+        let nameList: string[] = [];
+        this.products.forEach(product => {
+            nameList.push(product.getName());
+        });
+
         return nameList;
     }
 
